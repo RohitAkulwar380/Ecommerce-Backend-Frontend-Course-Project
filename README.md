@@ -143,7 +143,7 @@ The application will be available at:
 
 
 ### Avatar Storage
-Create a `public/avatars` folder in the project root to store user profile images.  
+Create a `public/uploads/avatars` folder in the project root to store user profile images.  
 This folder is ignored by Git and should be created manually on each deployment.
 
 
