@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme tokens and neobrutalist style */
+:root {
+  --background: 0 0% 100%;
+  --foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --primary: 240 5.9% 10%;
+  --primary-foreground: 0 0% 98%;
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 240 5.9% 10%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --accent: 49 100% 50%;
+  --accent-foreground: 240 10% 3.9%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 240 5.9% 10%;
+  --input: 240 5.9% 10%;
+  --ring: 240 5.9% 10%;
+  --shadow: 240 5.9% 10%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: 0 0% 3.9%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  /* Purple primary */
+  --primary: 270 83% 60%;
+  --primary-foreground: 0 0% 100%;
+  /* Neon green accent */
+  --accent: 145 90% 50%;
+  --accent-foreground: 240 10% 3.9%;
+  --secondary: 240 5.9% 10%;
+  --secondary-foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --border: 0 0% 98%;
+  --input: 240 3.7% 15.9%;
+  --ring: 270 83% 60%;
+  /* Use neon green for brutalist shadow color in dark mode */
+  --shadow: 145 90% 50%;
+  /* Update chart palette to match */
+  --chart-1: 270 83% 60%;
+  --chart-2: 145 90% 50%;
+  --chart-3: 290 80% 65%;
+  --chart-4: 160 90% 55%;
+  --chart-5: 250 85% 62%;
+}
+
+/* Neobrutalist utility helpers */
+.brutal {
+  @apply shadow-brutal border-2 rounded-sm;
+}
+.brutal-md {
+  @apply shadow-brutal-md border-2 rounded-sm;
+}
+
+/* Hide scrollbar utility */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+/* Line clamp utility */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Product image styling */
+.aspect-square img {
+  border-radius: 0.125rem; /* Match brutalist rounded-sm */
+  border: 2px solid hsl(var(--border));
+}
+
+/* Typography reset for the app */
+html, body, #root {
+  height: 100%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Opposite hover for buttons/links only (not page) */
+.swap-opposite {
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.swap-opposite:hover {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  --shadow: var(--primary);
+}
+.dark .swap-opposite:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  --shadow: var(--accent);
+}
