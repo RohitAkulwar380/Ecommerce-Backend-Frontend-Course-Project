@@ -141,6 +141,13 @@ The application will be available at:
 4. Push to the branch: \`git push origin feature/YourFeature\`
 5. Submit a pull request
 
+
+### Avatar Storage
+Create a `public/avatars` folder in the project root to store user profile images.  
+This folder is ignored by Git and should be created manually on each deployment.
+
+
 ## License
+
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
